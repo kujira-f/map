@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MAP</title>
+</head>
+<body>
+<div id="map" style="width:600px; height:500px"></div>
+
+<script type="text/javascript" charset="utf-8" src="https://map.yahooapis.jp/js/V1/jsapi?appid=dj00aiZpPU42eExZVUtSRGFMOSZzPWNvbnN1bWVyc2VjcmV0Jng9Mjk-"></script>
+<script type="text/javascript">
+var ymap = new Y.Map("map");
+var iconYellow = new Y.Icon('http://2.bp.blogspot.com/-iLvMf6s3b6M/V0QnoQqvVzI/AAAAAAAA69w/AdU5l6HIy3MX5CTXrfbMNNLbuksyyoC3QCLcB/s800/small_star7_yellow.png', {iconSize: new Y.Size(25,25)});
+var iconBrown = new Y.Icon('http://1.bp.blogspot.com/-scU7Rm6t7l0/V0QnnvYhA9I/AAAAAAAA69g/9clCO3MlO6EYiXdK46ugEIv_GOZLI9bXwCLcB/s800/small_star3_brown.png', {iconSize: new Y.Size(25,25)})
+var markerLighthouseYellow = new Y.Marker(new Y.LatLng(32.614269, 128.602203), {icon: iconYellow});
+var markerLighthouseBrown = new Y.Marker(new Y.LatLng(32.614269, 128.602203), {icon: iconBrown});
+var labelLighthouse = new Y.Label(new Y.LatLng(32.614269,128.602203), "大瀬崎灯台");
+var markerMountainYellow = new Y.Marker(new Y.LatLng(32.589974, 128.766312), {icon: iconYellow});
+var markerMountainBrown = new Y.Marker(new Y.LatLng(32.589974, 128.766312), {icon: iconBrown});
+var labelMountain = new Y.Label(new Y.LatLng(32.589974,128.766312), "只狩山");
+var markerAirportYellow = new Y.Marker(new Y.LatLng(32.669198, 128.838409), {icon: iconYellow});
+var markerAirportBrown = new Y.Marker(new Y.LatLng(32.669198, 128.838409), {icon: iconBrown});
+var markerMonkYellow = new Y.Marker(new Y.LatLng(32.780109, 128.664001), {icon: iconYellow});
+var markerMonkBrown = new Y.Marker(new Y.LatLng(32.780109, 128.664001), {icon: iconBrown});
+var labelMonk = new Y.Label(new Y.LatLng(32.780109,128.664001), "辞本崖");
+var markerTreeYellow = new Y.Marker(new Y.LatLng(32.673822, 128.730606), {icon: iconYellow});
+var markerTreeBrown = new Y.Marker(new Y.LatLng(32.673822, 128.730606), {icon: iconBrown});
+var labelTree = new Y.Label(new Y.LatLng(32.673822,128.730606), "二本楠");
+window.onload = function(){
+
+    ymap.drawMap(new Y.LatLng(32.693827, 128.75), 12, Y.LayerSetId.NORMAL);
+    ymap.addFeature(markerLighthouseYellow);
+    ymap.addFeature(labelLighthouse);
+    ymap.addFeature(markerMountainYellow);
+    ymap.addFeature(labelMountain);
+    ymap.addFeature(markerAirportYellow);
+    ymap.addFeature(markerMonkYellow);
+    ymap.addFeature(labelMonk);
+    ymap.addFeature(markerTreeYellow);
+    ymap.addFeature(labelTree);
+    markerLighthouseYellowClicked();
+    markerLighthouseBrownClicked();
+    markerMountainYellowClicked();
+    markerMountainBrownClicked();
+    markerAirportYellowClicked();
+    markerAirportBrownClicked();
+    markerMonkYellowClicked();
+    markerMonkBrownClicked();
+    markerTreeYellowClicked();
+    markerTreeBrownClicked();
+}
+var markerLighthouseYellowClicked = function(){
+    markerLighthouseYellow.bind('click', function(latlng){
+        ymap.removeFeature(markerLighthouseYellow);
+        ymap.addFeature(markerLighthouseBrown);
+    });
+}
+var markerLighthouseBrownClicked = function(){
+    markerLighthouseBrown.bind('click', function(latlng){
+        ymap.removeFeature(markerLighthouseBrown);
+        ymap.addFeature(markerLighthouseYellow);
+    });
+}
+var markerMountainYellowClicked = function(){
+    markerMountainYellow.bind('click', function(latlng){
+        ymap.removeFeature(markerMountainYellow);
+        ymap.addFeature(markerMountainBrown);
+    });
+}
+var markerMountainBrownClicked = function(){
+    markerMountainBrown.bind('click', function(latlng){
+        ymap.removeFeature(markerMountainBrown);
+        ymap.addFeature(markerMountainYellow);
+    });
+}
+var markerAirportYellowClicked = function(){
+    markerAirportYellow.bind('click', function(latlng){
+        ymap.removeFeature(markerAirportYellow);
+        ymap.addFeature(markerAirportBrown);
+    });
+}
+var markerAirportBrownClicked = function(){
+    markerAirportBrown.bind('click', function(latlng){
+        ymap.removeFeature(markerAirportBrown);
+        ymap.addFeature(markerAirportYellow);
+    });
+}
+var markerMonkYellowClicked = function(){
+    markerMonkYellow.bind('click', function(latlng){
+        ymap.removeFeature(markerMonkYellow);
+        ymap.addFeature(markerMonkBrown);
+    });
+}
+var markerMonkBrownClicked = function(){
+    markerMonkBrown.bind('click', function(latlng){
+        ymap.removeFeature(markerMonkBrown);
+        ymap.addFeature(markerMonkYellow);
+    });
+}
+var markerTreeYellowClicked = function(){
+    markerTreeYellow.bind('click', function(latlng){
+        ymap.removeFeature(markerTreeYellow);
+        ymap.addFeature(markerTreeBrown);
+    });
+}
+var markerTreeBrownClicked = function(){
+    markerTreeBrown.bind('click', function(latlng){
+        ymap.removeFeature(markerTreeBrown);
+        ymap.addFeature(markerTreeYellow);
+    });
+}
+</script>
+</body>
+</html>
